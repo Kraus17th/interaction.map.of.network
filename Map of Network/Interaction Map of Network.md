@@ -163,17 +163,17 @@ bQIDAQAB
 
 Для того чтобы это понять нужно посмотреть на сам **token**. 
 
-```apl
+```json
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImxvZ2luIjoidXNlciIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjIyNjI1ODgxLCJleHAiOjE2MjI2Mjk0ODF9.JbsL4MqT3q4bRVhjR8dg8KDvzKuQ9jFY8zoYzYqR_tztXP9kGm8hT2Ryxfi0G-CyJdnDfP5wEmzsyEAxg1QBieE_4z8rl74cXF3jP6DDk_6TvRR46ew-RhcwVYSIS49njAaXZ8vHzF16dw66yP04ov6D27kKwpfgQ7PyniC_jqlIlKwRhjsKwj-dUhRsP8k1ao2GEbZ8YCR9MN0pIR0dTQlH55fMeG_TenR1s6JKqHTIQp-Yi8Z_q9SV_uJi-9svPYHndgniXoKV1oaONs24xilvC374Kd-ypUVnZchxTw0DSEPFvcYvMnYFqXhdlXQzv9jg0u9AXIS7Lnx6yhAbLA
 ```
 
 Он состоит из 3 частей и разделён точками:
 
-```apl
+В первой части сразу узнаётся base64. Здесь содержится информация о типе всего шифрования token'а, это **"RS256"**.
+
+```json
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9
 ```
-
-В первой части сразу узнаётся base64. Здесь содержится информация о типе всего шифрования token'а, это **"RS256"**.
 
 ```json
 {
@@ -182,11 +182,11 @@ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9
 }
 ```
 
-```apl
+Вторую часть можно тоже расшифровать используя base64. Тут представлены **системные данные о клиенте**. 
+
+```json
 eyJ1c2VySWQiOjIsImxvZ2luIjoidXNlciIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjIyNjI1ODgxLCJleHAiOjE2MjI2Mjk0ODF9
 ```
-
-Вторую часть можно тоже расшифровать используя base64. Тут представлены **системные данные о клиенте**. 
 
 ```json
 {
@@ -200,13 +200,13 @@ eyJ1c2VySWQiOjIsImxvZ2luIjoidXNlciIsInJvbGVzIjpbIlVTRVIiXSwiaWF0IjoxNjIyNjI1ODgx
 }
 ```
 
-```apl
+Третья часть не поддалась так просто, поэтому нужно пришлось найти специальный ресурс для рассшифровки RS256. Оттуда я и узнал, что в последней части сообщения находиться **цифровая подпись первого сервера**.
+
+```json
 JbsL4MqT3q4bRVhjR8dg8KDvzKuQ9jFY8zoYzYqR_tztXP9kGm8hT2Ryxfi0G-CyJdnDfP5wEmzsyEAxg1QBieE_4z8rl74cXF3jP6DDk_6TvRR46ew-RhcwVYSIS49njAaXZ8vHzF16dw66yP04ov6D27kKwpfgQ7PyniC_jqlIlKwRhjsKwj-dUhRsP8k1ao2GEbZ8YCR9MN0pIR0dTQlH55fMeG_TenR1s6JKqHTIQp-Yi8Z_q9SV_uJi-9svPYHndgniXoKV1oaONs24xilvC374Kd-ypUVnZchxTw0DSEPFvcYvMnYFqXhdlXQzv9jg0u9AXIS7Lnx6yhAbLA
 ```
 
-Третья часть не поддалась так просто, поэтому нужно пришлось найти специальный ресурс для рассшифровки RS256. Оттуда я и узнал, что в последней части сообщения находиться **цифровая подпись первого сервера**.
-
-```apl
+```json
 RSASHA256(
   base64UrlEncode(header) + "." +
   base64UrlEncode(payload),
