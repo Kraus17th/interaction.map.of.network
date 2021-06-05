@@ -171,7 +171,7 @@ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImxvZ2luIjoidXNlciIsInJvbGV
 
 В первой части сразу узнаётся base64. Здесь содержится информация о типе всего шифрования token'а, это **"RS256"**.
 
-```json
+```base64
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9
 ```
 
