@@ -1,5 +1,6 @@
 # Interaction Map of Network
 
+
 In OS:
 
 ![OS](https://github.com/Kraus17th/Interaction.Map.of.Network/blob/main/Map%20of%20Network/Assets/os.jpg)
@@ -8,9 +9,7 @@ Wireshark
 
 ![Wireshark](https://github.com/Kraus17th/Interaction.Map.of.Network/blob/main/Map%20of%20Network/Assets/wireshark.jpg)
 
-Interaction
 
-![Interaction](https://github.com/Kraus17th/Interaction.Map.of.Network/blob/main/Map%20of%20Network/Assets/Interaction.jpg)
 
 1. Client (41028) > Server.1 (9001) (Request):
 
