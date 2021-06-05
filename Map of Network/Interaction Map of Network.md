@@ -1,10 +1,15 @@
 # Interaction Map of Network
 
+In OS:
+![OS](https://github.com/Kraus17th/Interaction.Map.of.Network/blob/main/Map%20of%20Network/Assets/os.jpg)
 
+Wireshark
+![Wireshark](https://github.com/Kraus17th/Interaction.Map.of.Network/blob/main/Map%20of%20Network/Assets/wireshark.jpg)
+
+Interaction
+![Interaction](https://github.com/Kraus17th/Interaction.Map.of.Network/blob/main/Map%20of%20Network/Assets/Interaction.jpg)
 
 1. Client (41028) > Server.1 (9001) (Request):
-
-   
 
    ```http
    PUT http://localhost:9001/users HTTP/1.1
@@ -19,8 +24,6 @@
 
 2. Server.1 (9001) > Client (41028) (Response):
 
-   
-
    ```http
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -30,8 +33,6 @@
    ```
 
 3. Client (39916) > Server.2 (9002) (Request):
-
-   
 
    ```http
    GET /api/transactions HTTP/1.1
@@ -43,8 +44,6 @@
 
 4. Server.2 (40048) > Server.3 (9003) (Request):
 
-   
-
    ```http
    GET /api/transactions HTTP/1.1
    Host: localhost:9003
@@ -55,8 +54,6 @@
 
 5. Server.3 (54578) > Server.4 (9004) (Request):
 
-   
-
    ```http
    GET /api/transactions HTTP/1.1
    Host: localhost:9004
@@ -66,8 +63,6 @@
    ```
 
 6. Server.4 (9004) > Server.3 (54578) (Response):
-
-   
 
    ```http
    HTTP/1.1 200 OK
@@ -80,8 +75,6 @@
 
 7. Server.3 (9003) > Server.2 (40048) (Response):
 
-   
-
    ```http
    HTTP/1.1 200 OK
    Content-Type: application/json
@@ -92,8 +85,6 @@
    ```
 
 8. Server.2 (9002) > Client (39916) (Response):
-
-   
 
    ```http
    HTTP/1.1 200 OK
